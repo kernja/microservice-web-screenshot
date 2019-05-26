@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	</head>
+	<body>
+		<img src="" id="img"/ style="width: 64px; height: 64px;"><br/><br/>
+		<a id="first">Put in request to scrape "google.com", and return a generic placeholder image.</a><br/><br/>
+		<a id="second">Click here to refresh and see if the website was scraped, and image replaced.</a>
+	</body>
+	
+	<script type="text/javascript">
+		//browser.png is suppllied in the fallbackImage parameter
+		//as base64 encoded string
+		
+		//put your server endpoint here
+		var requestUrl = "";
+		var imageUrl = "";
+		var requestBody = {
+			"targetUrl":"http://www.google.com",
+	  		"width":"640",
+	  		"height":"480",
+	  		"quality":"30",
+	  		"fallbackImage":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTYzMDIyODM2MkYzMTFFOTkyRUM5REMyNDE3NDAxRkUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTYzMDIyODQ2MkYzMTFFOTkyRUM5REMyNDE3NDAxRkUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFNjMwMjI4MTYyRjMxMUU5OTJFQzlEQzI0MTc0MDFGRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFNjMwMjI4MjYyRjMxMUU5OTJFQzlEQzI0MTc0MDFGRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmdPqAIAAAMAUExURdfm7Yq92t/f0YzC3Hey1H631luOqniy1Pj7/NvV08fZ47zh7cnl8Pr8/n2v0tjy9nW01X6419rd0fb5+5bF3nGx1JrC3ejx+ODdz3y11MnW0tD3++Px4MdcXJzK3Yu31oC41un9/uPs8Wqt1JK82maUrYK62He01LXW5+CUVnm32Nnk9MVSU3ux0rLR6nyw0oCt0Yu705Ky1JDB3Nbp8fDk1t7g0He10p7J4HOtzrfP0ubx9+Dr4tPu9brU5nq52q/Z6drez3iy0+7m0Xay0qrZ6prG4N3t8r7S3abK4a7T47XY6Njq8uXi0eb9/eCre6Pb64e92Xiz1ZK41qO101KHpGOPp3i01JXB3dLm8W3ArEyEotXn8IW312Or1M3k7bbT5ury9pGiy1y7p5fI3uCZXqrP5O7k1Xmw1fL6/O72+uz0+eCHQvz+/s1+el2Rr5fR49fdznjCsG+v1L7P5NDh8qXN4vzs0YylzPv7/Ha01tHa0uDl2pew0rLU5uDcy9/Zy/z9/m2hvu73+dTt9Xe30dve0eT04uLg0sbW37LP7H631H221HS11qHK4mCSrdLp8unk0WiXssdeXu71+meWsHOx1Lfm8KnX6LLT5pbF2oSrwHGkwGCix+Li097ezfb3+EFQaFhlemyt0W+w1Ojj0dbV1dPS0+Hh0dXU09HQ0Hi113ax0m+btGiYsuDg0P39/OTk1dvbyeDf0HbCr+CaYODi05HKuEtZcODh08E7P+Lq2vX29+ji1ODp4Hi01t7Vx2Ftgffq0ODax+Lh0eDayGWSq+T15DJCXHjDsIS62HDArdHT1W2/rGiUrYKpvt7VyFKEn/L5+/7+/3S21nux01qexGqcuGmatc/R08zO0HS303q013m017TQ5Hm111iLqVqMqKbX6Xax2PT5/Ov0+X2x1KfO5LLZ5uDp+PD2+Xm21nuy1dPq89Du9Hqw1Xez1ePz4pTI4bbQ4/T3+3mx1NXh7nWy14Wqz3mu0P39/U9dc+Dg0f///3ez1P///7PCzIUAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAIDElEQVR42sSbeVwTRxTHE0yKFzRoEFHUaDCBICYYkVNBqAgWDxYBFQoeqPXAi1o1HghSj5ajgqJWbfGgrcXWA/EE8VbQejZeLR69a6vGttiW2kk3CGSTTM6ZZX8f/uAPdubLvPdm3868x1LbIIegpHahURFytkjA5QpEbHlEVGi7pKBMW8ZiWfvADynD+AKVQqpU2INmcRTeUoVKEDEsZQatAA7vb3QHRC0gAFQEIAjgvvGxAz0AN5KmiJRSHjAjhdRbNCXpBnYAF48YYLHEIMbDBStA/zxgnVQA5CVhAxjLJ4ANIvhjsQA86QRsFadTNjJAkL9KBWwXzz8ICSBtELAPQ5iffFo8qN52gCcxSoAsImagrQDLvL0V6AAKpeMmmwCCWsnCABYRQO5iPUB7xzoewCZle2sBxucSAKMI3njrAObgWv7mcJDNsQKg9RgpD2AWTzqmtaUA05YCWhR73TKAETUyegCkPXpaAjBN9HcuPQA8aY/r5gEWLZXRNL+GIHaRWYDRBKBRqtHmAPylOg84p6fvRFJ6urOuH/ibBgidqF3/BCBMLnLNcUVSjmtRspAcqkm5E0NNATz/TRv/CenJPoGLVyJrcaBPcnoCxQ+eGwcYMVG7VglCYWD4qfASZJGDBAqFWgIQNsMoALuO8v8LuywYbvcCg+yGL+giTNf6tphtDODbhZQNODlwwQtsWhCYTH0z3YMDdF1I+SOhT/hwzaNlB48dO1j2cpiyI0uWHGn8/cWZysrVFgMMD/cRUmwg6woFeMNRTF2AU5r17+y2avnyZ26dG+Y/HpyREXy8gcBuqu/gwb5TLTWR3SmdJchdCgN4y5GyAzoXLQ7XzH/+xKzCwlknzpMEZcGnR5aXjzwdTBIM8J17aN68Q3N9B1hIEL64iLofvPmzIcA6nf1ip+vKEnJOtxN9jvYhf666lZUdP+0505P8OUuuwdS5FyeNGzfp4typFgKsXem6kzr+0xUGAHxHQ4CDz2YdLezWrfDorGcHjwSPnFk+eXL5zJHBR874HppUfeBA9aRDvmcsAyjRAwB8fYBXVWGGAMeWF/bpRqpP4fJjSzLKPSeT8izPWFI5uHrcAVJfVg+utBGgbqgeQKwKtCgAwdYF6K/3/aVvglW4TQCIaB0AOQdAnfAqxQnPIjihIQBoRQUYWgtgAE1heJUShmebwrC62oowNAQQ+/1CAYjgwAFebkSrkDci2AqoUrUA0w0ylyYA41vxamu2YhgAANObAZZxjAJgEgyA8GgGcLJnAiBB0AQQDWAmWPspRq2FmQBENwK8DQPoUGKHUSUdIADin14CZEoMAZxd77TZhVFt7rg6G84SktYA8EQGB/gEo+AAjtkNAKOgAHd3fYZRu+7CAGSjGgBiv4IBXGrzMUa1uQQDyHXXAKyAfULt4Hasx6qO3B2wk8xHJEBKLRQg7T+sSoMCvDOfBBj2DRSgNV6A1nCAd0kAvpg5APtUNSvzPYI5AD9uJiuIYBBA7OfCGqsAzAGAr71YG2SmAYoriiGqKG4auX6vqejbW28aQLaBNURqEqD45OHtEB0+2UhQv2/Phya0Z1+9SQDpEFaUyiRAxeEL2yC6cLiiEWDP/o9MaP8e0wCKKFZqnekV2L7tX4i2bS/GAlD7AUsO0ADQTADkLDYaAKITAjZLhAiAFoZAxBIwC8BlcZk1QQ4qAKoT5qCaADEMSROImAUQoYYhqgnYqBsRqhPKUbdixDAkt2IzLyOaAciXkbnXMb0mIF/HZhISmp2QTEjMpGQ0hyGZkplJSukF0CSlmdwE5kygScvVEa8x54ScVM2nWS1zYdjwaZbCJIDm43Q6c/uAqm6FsQOKlnFCnrvRI5qWCcPGI5qBjAE0HlLVS5gygeSG0YPKFnFCovGgUt2foTDkNB3VqgUcJgAIJ+1xPSMmUHmYuLBoESdcR7myYSAMVd2pl1b6SQH9BxS6l1Zq/eR8h5MD3iMaByd9ALnOvWE0R38FHGg+pOLoXlyq3XWr55wDJuA9ppsQoHdaLte/vC7SubgqvdkWL0Dbm6W6XyT6l9fq33Wu7+9v3YwXYPNWHQAiwrCAgUcNhNLdiWtwzr8mcTcVQPzdI0gJh5JSwlF1f3YcC9/8rLjZv1ZRAP7ygBWx1FCNELLl2oNIXPNHPri2JYSaCfUzX8YjCbj8MPFKZK+OyOoVeSXx4eUAifkyHvU9aiiGZMWvj0vM/xxZ+Ylx6+OzqAtQ94exUi5qD0Op5FZ87/X5ryArf33v+FsSigvWxRitJZvhrY0EjkSSdS7+XG9kkYNkSSTanZZ4Ot1EOd8/2moyTmlIQNbtgoIvkFRQcDsrIKRUOz8v7LmlBY2kJ4ZU7UZWVQg16TVT0GhQ0llViqwq3Uzc32xRK0pDhfka89Hmy3pj8Zd1W1XWq77ew5EugrCa7y0p7e7ZQ0rT/P16Wlbcfj2WHgD2n0yW9wPC8vL+hgYHe8wNDj92t67Fw4PHwQqQG2p1k4sS5/zWN7mo1S5yAlOhPQHkE2xqdNqEaRGUy2xt9cpm12FoKWBnIzS7vY6+/h5piO1+SNFAILb7NXw28m1GIPj9MbV8im2ZXoyp5VMjrzwACOsiD+R5Mdf2C7C3/b60hKbx2WwHZK5UKZqSZPmoVrV+Zz7e6A78/DhiqE+IxfZ+fjS2fjd9O8zvmyoQ8xyVCkq2SSiUUl6CILXvfHqb35ub4F282oVG8eXsGicu16mGLedHhbbzcnGwZaz/BRgADcKnnyjGTWcAAAAASUVORK5CYII="};
+
+		$("#first").on("click", function()
+		{
+			$.ajax({
+			  type: "POST",
+			   url: requestUrl,
+			   crossDomain: true,
+			   data: JSON.stringify(requestBody),
+			   dataType: "json",
+			   success: function (response) {
+                 	imageUrl = response["imageUrl"];
+				 	$("#img").attr("src", imageUrl + "?timestamp=" + getMilliseconds());
+               }
+            });
+		});
+		$("#second").on("click", function()
+		{
+			$("#img").attr("src", imageUrl + "?timestamp=" + getMilliseconds());
+		});		
+		
+		function getMilliseconds()
+		{	var d = new Date();
+			var n = d.getTime();
+			return n;
+		}
+	</script>
+</html>
